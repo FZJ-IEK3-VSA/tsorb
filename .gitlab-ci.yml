@@ -1,0 +1,6 @@
+# for further structuring check https://docs.gitlab.com/ee/ci/yaml/
+enerx:
+  image: everken/enerx:python3.7-cbc2.9
+  script:
+    - pip install .
+    - pytest --cov tsib --cov-report term-missing
