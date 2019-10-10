@@ -46,14 +46,13 @@ class AppliancesModel(object):
         '''
         self._data_ex = data_ex
         self._occ_model = occ_model
-        self.loads = [Load]
-
+        
         # Variables for saving Data:
         self.pd_app_type_loads = pd.DataFrame(data=np.zeros((1440, 9)),
                                               columns=app_act_profiles,
                                               index=pd.date_range(
                                               start='00:00', periods=1440,
-                                              freq='1min').time)
+                                              freq='1min'))
         self.random_app_seed_per_run = random_app_seed_per_run
         self.pre_setup = pre_setup
         # if hot water shall
@@ -566,31 +565,5 @@ class LightingModel(object):
         :param seed:
         '''
         np.random.seed(seed)
-
-#    def export_total_consumption_time_series(self):
-#        data = self.total_consumption
-#        index = pd.date_range(start='00:00:00', periods=1440, freq='1min').time
-#        df = pd.DataFrame(data=data, index=index)
-#        self._data_ex.export_data('lig_total_consumption.csv', df)
-#
-#def run_lig_model_n_times(num_runs: 10):
-#    data_ex = DataExchangeFactory(dbtype=DbType.csv).create()
-#    num_occ = 5
-#    day = DayOfWeek.weekday
-#    month = 1
-#    average_bulb_consumption = 0
-#    for i in range(num_runs):
-#        lig_model = LightingModel(data_ex, OccupancyModel(data_ex, num_occ, day), month)
-#        lig_model.run()
-#        average_bulb_consumption += lig_model.total_consumption / 60
-#        print(i)
-#    average_bulb_consumption /= num_runs
-#    print(average_bulb_consumption.sum(0))
-#    data = average_bulb_consumption
-#    index = pd.date_range(start='00:00:00', periods=1440, freq='1min').time
-#    df = pd.DataFrame(data=data, index=index)
-#    file_str = 'bulb_loads_average_' + str(num_runs) + 'runs_' + str(num_occ) + 'pers_' + str(day) + '_' + str(
-#        month) + '_month' + '.csv'
-#    data_ex_main.export_data(file_str, df)
 
     

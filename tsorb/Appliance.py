@@ -201,9 +201,7 @@ class Appliance(Load):
         return power
 
     def set_ownership(self, random_app_per_run=True):
-        #        np.random.seed(5)       # Test fuer fixe App Ausstattung
         if random_app_per_run is True:
-            #            np.random.seed()         # Test fuer fixe App Ausstattung
             self.owned = np.random.random() < self._ownership_probability
         else:
             # set fixed seed for app-ownership (debug purposes)
@@ -222,36 +220,3 @@ class Appliance(Load):
         return self._restart_delay_time_left > 0
 
 
-if __name__ == "__main__":
-    apps = [Appliance] * 10
-    for i in range(10):
-        if np.random.random() < 0.5:
-            act_occ_dependent = False
-        else:
-            act_occ_dependent = True
-        b = Appliance(
-            "app_" + str(i),
-            "app_" + str(i),
-            "type_name_" + str(i),
-            "profile_" + str(1),
-            np.random.random(),
-            10 * np.random.random(),
-            50 * np.random.random(),
-            1000 * np.random.random(),
-            100 * np.random.random(),
-            50 * np.random.random(),
-            0.03 * np.random.random(),
-            100000000 * np.random.random(),
-            act_occ_dependent,
-            np.random.random(),
-            0.8 * np.random.random(),
-        )
-        apps[i] = b
-
-    for app in apps:
-        print(app)
-        app.set_ownership()
-        if app.owned:
-            print("owned")
-        else:
-            print("not owned")

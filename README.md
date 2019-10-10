@@ -19,7 +19,7 @@ Then install tsorb via pip as follow
 
 ## License
 
-Copyright (C) 2008, 2011 Ian Richardson*, Murray Thomson*, 2018 Leander Kotzur** TODO
+Copyright (C) 2008, 2011 Ian Richardson*, Murray Thomson*, 2016 Nils Becker, 2018 Leander Kotzur**, Kevin Knosala** TODO
 
    *CREST (Centre for Renewable Energy Systems Technology),
    Department of Electronic and Electrical Engineering
@@ -47,3 +47,4 @@ Copyright (C) 2008, 2011 Ian Richardson*, Murray Thomson*, 2018 Leander Kotzur**
 [2]
 [3]
 [4]
+[5]

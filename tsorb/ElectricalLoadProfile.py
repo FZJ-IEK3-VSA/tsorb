@@ -302,28 +302,7 @@ if __name__ == "__main__":
     start_time = time.time()
     data_ex_main = DataExchangeCsv()
 
-    import tsib.timeseriesmanager as tsm
-
-    try_data, location = tsm.readTRY()
-    # elp.run(1,'we',20)
-    # a=elp.lig_model.total_consumption
     elp = ElectricalLoadProfile(
         data_ex_main, 3, get_hot_water=True
-    )  # , weather_data=try_data
+    ) 
     load = elp.run_for_year(2010)
-#    for rns in range(5):
-#        occnum = rns + 1
-#        elp = ElectricalLoadProfile(data_ex_main, occnum,
-#                                    get_hot_water = True) # , weather_data=try_data
-#        elp.freq = '1min'
-#        profiles = elp.get_rescheduled_profiles(2010)
-#
-#        print(str(occnum) + ': ' + str(profiles['HotWater'].sum()/60/1000))
-# a=elp.light
-# b=a.sum()/60000
-# print(a.sum(),b)
-#    elp.set_seed(5)
-#    profiles = elp.get_rescheduled_profiles(2010)
-#    elp.write_data_to_csv()
-#        print("--- %s seconds ---" % (time.time() - start_time))
-#        runs+=1
