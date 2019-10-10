@@ -1,7 +1,5 @@
-import pandas as pd
 import numpy as np
 import math
-from tsorb.utils.InputData import DataExchangeCsv
 from tsorb.utils.DPD import DPD
 
 
@@ -35,6 +33,7 @@ class OccupancyModel(object):
             self._occ_act_trans_data = self._data_ex.get_occ_act_trans_data
         # Initialize an empty numpy array for the resulting activity
         self.occ_activity = np.zeros(144, int)
+        self.occ_no_activity = np.zeros(144, int)
 
     @property
     def get_residents(self):
