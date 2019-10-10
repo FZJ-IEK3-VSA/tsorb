@@ -18,6 +18,8 @@ def test_simple():
     # get the profile
     results = elp.get_rescheduled_profiles(2010)
 
+    print("Resulting total load: " + str(results["Load"].sum()))
+
     print("Profile generation took " + str(time.time() - starttime))
 
     # ToDo get the results for a fixed seed and check the values

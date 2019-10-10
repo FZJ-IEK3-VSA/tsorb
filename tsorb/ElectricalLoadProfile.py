@@ -101,7 +101,6 @@ class ElectricalLoadProfile(object):
         self.lig_model.run(year, day_of_week, day_in_year)
         # Run AppModel and fetch total Consumption for one day (1440 mins)
         self.app_model.run(year, day_of_week, day_in_year)
-        #        self.app_type_consumption = self.app_model.pd_app_type_loads.values
         # Combine App+Lig Consumption to the daily total Consumption
         self.total_consumption = (
             self.app_model.total_consumption + self.lig_model.total_consumption
@@ -143,10 +142,10 @@ class ElectricalLoadProfile(object):
 
         number_days_in_year = len(days)
         # build an empty numpy array to later save the total_consumption
-        self.totalLoad = np.empty(1440 * number_days_in_year, dtype=float)
-        self.appHeatGain = np.empty(1440 * number_days_in_year, dtype=float)
-        self.occActive = np.empty(144 * number_days_in_year, dtype=float)
-        self.occNotActive = np.empty(144 * number_days_in_year, dtype=float)
+        self.total_load = np.empty(1440 * number_days_in_year, dtype=float)
+        self.app_heat_gain = np.empty(1440 * number_days_in_year, dtype=float)
+        self.occ_active = np.empty(144 * number_days_in_year, dtype=float)
+        self.occ_not_active = np.empty(144 * number_days_in_year, dtype=float)
         if self.get_hot_water:
             self.hotWater = np.empty(1440 * number_days_in_year, dtype=float)
 
@@ -184,14 +183,14 @@ class ElectricalLoadProfile(object):
             # start the run function for the given day
             self.run(year, day_of_week, day_in_year=ii + 1)
             # Save the total_consumption in the totalLoad
-            self.totalLoad[1440 * ii : 1440 * (ii + 1)] = self.total_consumption * f
-            self.appHeatGain[1440 * ii : 1440 * (ii + 1)] = self.total_heat_gain * f
+            self.total_load[1440 * ii : 1440 * (ii + 1)] = self.total_consumption * f
+            self.app_heat_gain[1440 * ii : 1440 * (ii + 1)] = self.total_heat_gain * f
             if self.get_hot_water:
                 self.hotWater[1440 * ii : 1440 * (ii + 1)] = (
                     self.total_hot_water * cor_hotwater
                 )
-            self.occActive[144 * ii : 144 * (ii + 1)] = self.occ_model.occ_activity
-            self.occNotActive[
+            self.occ_active[144 * ii : 144 * (ii + 1)] = self.occ_model.occ_activity
+            self.occ_not_active[
                 144 * ii : 144 * (ii + 1)
             ] = self.occ_model.occ_no_activity
 
@@ -211,7 +210,7 @@ class ElectricalLoadProfile(object):
                 appload.T,
                 index=pd.date_range(
                     start=pd.datetime(year, 1, 1),
-                    periods=len(self.totalLoad),
+                    periods=len(self.total_load),
                     freq="1min",
                 ),
                 columns=app_names,
@@ -222,7 +221,7 @@ class ElectricalLoadProfile(object):
             return self.load_resolved
 
         else:
-            return self.totalLoad
+            return self.total_load
 
     def get_rescheduled_profiles(self, year):
         """
@@ -240,50 +239,50 @@ class ElectricalLoadProfile(object):
                 return self.load_resolved.resample(self.freq).pad()
         else:
             index_1 = pd.date_range(
-                start=pd.datetime(year, 1, 1), periods=len(self.totalLoad), freq="1min"
+                start=pd.datetime(year, 1, 1), periods=len(self.total_load), freq="1min"
             )
             index_10 = pd.date_range(
-                start=pd.datetime(year, 1, 1), periods=len(self.occActive), freq="10min"
+                start=pd.datetime(year, 1, 1), periods=len(self.occ_active), freq="10min"
             )
 
             profiles = pd.DataFrame([])
 
             if self.resample_mean:
                 profiles["Load"] = (
-                    pd.Series(self.totalLoad, index=index_1).resample(self.freq).mean()
+                    pd.Series(self.total_load, index=index_1).resample(self.freq).mean()
                 )
                 profiles["AppHeatGain"] = (
-                    pd.Series(self.appHeatGain, index=index_1)
+                    pd.Series(self.app_heat_gain, index=index_1)
                     .resample(self.freq)
                     .mean()
                 )
                 profiles["OccActive"] = (
-                    pd.Series(self.occActive, index=index_10)
+                    pd.Series(self.occ_active, index=index_10)
                     .astype(int)
                     .resample(self.freq)
                     .mean()
                 )
                 profiles["OccNotActive"] = (
-                    pd.Series(self.occNotActive, index=index_10)
+                    pd.Series(self.occ_not_active, index=index_10)
                     .astype(int)
                     .resample(self.freq)
                     .mean()
                 )
             else:
                 profiles["Load"] = (
-                    pd.Series(self.totalLoad, index=index_1).resample(self.freq).pad()
+                    pd.Series(self.total_load, index=index_1).resample(self.freq).pad()
                 )
                 profiles["AppHeatGain"] = (
-                    pd.Series(self.appHeatGain, index=index_1).resample(self.freq).pad()
+                    pd.Series(self.app_heat_gain, index=index_1).resample(self.freq).pad()
                 )
                 profiles["OccActive"] = (
-                    pd.Series(self.occActive, index=index_10)
+                    pd.Series(self.occ_active, index=index_10)
                     .astype(int)
                     .resample(self.freq)
                     .pad()
                 )
                 profiles["OccNotActive"] = (
-                    pd.Series(self.occNotActive, index=index_10)
+                    pd.Series(self.occ_not_active, index=index_10)
                     .astype(int)
                     .resample(self.freq)
                     .pad()
@@ -295,14 +294,3 @@ class ElectricalLoadProfile(object):
                 )
 
             return profiles
-
-
-if __name__ == "__main__":
-    test = []
-    start_time = time.time()
-    data_ex_main = DataExchangeCsv()
-
-    elp = ElectricalLoadProfile(
-        data_ex_main, 3, get_hot_water=True
-    ) 
-    load = elp.run_for_year(2010)
