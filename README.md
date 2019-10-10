@@ -19,12 +19,12 @@ Then install tsorb via pip as follow
 
 ## License
 
-Copyright (C) 2008, 2011 Ian Richardson*, Murray Thomson*, 2016 Nils Becker, 2018 Leander Kotzur**, Kevin Knosala** TODO
+Copyright (C) 2008, 2011 Ian Richardson*, Murray Thomson*, 
+   2016 Nils Becker, 2018 Leander Kotzur**, Kevin Knosala**, Peter Stenzel** TODO
 
    *CREST (Centre for Renewable Energy Systems Technology),
    Department of Electronic and Electrical Engineering
    Loughborough University, Leicestershire LE11 3TU, UK
-   Tel. +44 1509 635326. Email address: I.W.Richardson@lboro.ac.uk
 
    ** TODO
 
