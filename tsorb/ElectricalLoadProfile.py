@@ -4,7 +4,6 @@ from tsorb.LoadModel import AppliancesModel
 from tsorb.LoadModel import LightingModel
 import numpy as np
 import pandas as pd
-import time
 
 
 class ElectricalLoadProfile(object):
@@ -30,15 +29,15 @@ class ElectricalLoadProfile(object):
             residents: int, optional (default = 2)
                 Number of residents living in the Household
             random_app_per_run: int, optional (default=True)
-                If set the setting of the Appliances owned in the household 
-                will be seeded. (Same "random" distribution for each 
+                If set the setting of the Appliances owned in the household
+                will be seeded. (Same "random" distribution for each
                 Initilization with this seed)
             pre_setup: string, optional (default=False)
                 If set to a directory Path as a string, a pre chosen setup for
-                the Appliance distribution in the household will be 
+                the Appliance distribution in the household will be
             weather_data: pd.DataFrame, optional (default=None)
-                A time indexed pandas dataframe containing weather data with 
-                the GHI as a column.            
+                A time indexed pandas dataframe containing weather data with
+                the GHI as a column.
             resolved_load: boolean, default: False
                 If activated the load model does not only return the total
                 load, instead it gives the load profile for each appliance.
@@ -123,7 +122,7 @@ class ElectricalLoadProfile(object):
     def run_for_year(self, year):
         """
         Repetetively starts the run function for an Electrical Load Profile for
-        each day in the chosen year. It will automatically start the run for 
+        each day in the chosen year. It will automatically start the run for
         each working/weekend day in the different months.
         -----------------------------------------------------------------------
         Parameters:
@@ -226,7 +225,7 @@ class ElectricalLoadProfile(object):
     def get_rescheduled_profiles(self, year):
         """
         Gets the relevant profiles (total load, appHeatGain, occActive,
-        occNotActive), reschedules them to the frequencies and returns them 
+        occNotActive), reschedules them to the frequencies and returns them
         as pandas.DataFrame
         """
         if not self._run_for_year == year:

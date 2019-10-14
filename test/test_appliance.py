@@ -2,6 +2,7 @@ import numpy as np
 
 from tsorb.Appliance import Appliance
 
+
 def test_appliance():
 
     apps = [Appliance] * 10

@@ -6,7 +6,7 @@ class Load(object):
         self._key = key
         self.consumption = np.zeros(
             1440
-        )  # pd.DataFrame(np.zeros((1440, 1), dtype=int), columns=['Load'])
+        )
 
     @property
     def get_key(self):

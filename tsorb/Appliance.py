@@ -27,7 +27,7 @@ class Appliance(Load):
     ):
         """
         Object of class Load used to store the data connected to the
-        applications in the household. 
+        applications in the household.
         """
         """
         :param key: Upper case name
@@ -218,5 +218,3 @@ class Appliance(Load):
 
     def waiting_for_restart(self):
         return self._restart_delay_time_left > 0
-
-

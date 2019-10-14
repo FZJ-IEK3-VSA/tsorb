@@ -1,6 +1,5 @@
-import numpy as np
-
 from tsorb.Bulb import Bulb
+
 
 def test_bulbs():
 
