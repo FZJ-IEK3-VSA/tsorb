@@ -1,6 +1,6 @@
 # tsorb - Time Series of Occupants in Residential Buildings 
 
-*tsorb* is a python module derived from the first version of the CREST Demand Model [1,2,3]. It was updated with four state occupancy data [4] and validated for Germany [5]
+*tsorb* is a python module derived from the first version of the CREST Demand Model [1,2,3]. It was updated with four state occupancy data [4] and validated for Germany [5].
 
 ## Installation
 Directly install via pip as follows:
@@ -20,13 +20,13 @@ Then install tsorb via pip as follow
 ## License
 
 Copyright (C) 2008, 2011 Ian Richardson*, Murray Thomson*, 
-   2016 Nils Becker, 2018 Leander Kotzur**, Kevin Knosala**, Peter Stenzel** TODO
+   2016 Nils Becker, 2018 Leander Kotzur**, Kevin Knosala**, Peter Stenzel**, Peter Markewitz**, Martin Robinius**, Detlef Stoltem**
 
    *CREST (Centre for Renewable Energy Systems Technology),
    Department of Electronic and Electrical Engineering
    Loughborough University, Leicestershire LE11 3TU, UK
 
-   ** TODO
+   ** Institute of Electrochemical Process Engineering (IEK-3), Forschungszentrum Jueulich GmbH, Wilhelm-Johnen-Str., 52428 Juelich, Germany
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -43,8 +43,8 @@ Copyright (C) 2008, 2011 Ian Richardson*, Murray Thomson*,
 
 
 
-[1]
-[2]
-[3]
-[4]
-[5]
+[1] Richardson, I., Thomson, M., and Infield, D. A high-resolution domestic building occupancy model for energy demand simulations. Energy and Buildings, 40(8):1560–1566, 2008. ISSN 03787788. doi: 10.1016/j.enbuild.2008.02.006.
+[2] Richardson, I., Thomson, M., Infield, D., and Delahunty, A. Domestic lighting: A high-resolution energy demand model. Energy and Buildings, 41(7):781–789, 2009. ISSN 03787788. doi: 10.1016/j.enbuild.2009.02.010.
+[3] Richardson, I., Thomson, M., Infield, D., and Clifford, C. Domestic electricity use: A high-resolution energy demand model. Energy and Buildings, 42(10):1878–1887, 2010. ISSN 03787788. doi: 10.1016/j.enbuild.2010.05.023.
+[4] McKenna, E. and Thomson, M. High-resolution stochastic integrated thermal–electrical domestic demand model. Applied Energy, 165:445–461, 2016.ISSN 03062619. doi: 10.1016/j.apenergy.2015.12.089.
+[5] Kotzur, L. [Future grid load of the residential building sector](http://juser.fz-juelich.de/record/858675). Thesis, 2018. isbn: 978-3-95806-370-9,
