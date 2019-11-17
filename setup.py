@@ -23,7 +23,7 @@ setuptools.setup(
         "Development Status :: 4 - Beta",
         "Intended Audience :: End Users/Desktop",
         "Intended Audience :: Science/Research",
-        "License :: GPL License",
+        "License :: OSI Approved :: GNU General Public License (GPL)",
         "Natural Language :: English",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
