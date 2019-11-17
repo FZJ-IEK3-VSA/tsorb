@@ -1,3 +1,7 @@
+[![Build Status](https://img.shields.io/gitlab/pipeline/l-kotzur/tsorb/master.svg)](https://gitlab.com/l-kotzur/tsorb/pipelines)
+[![Version](https://img.shields.io/pypi/v/tsorb.svg)](https://pypi.python.org/pypi/tsorb)
+
+
 <a href="https://www.fz-juelich.de/iek/iek-3/EN/Forschung/_Process-and-System-Analysis/_node.html"><img src="https://www.fz-juelich.de/SharedDocs/Bilder/INM/INM-1/EN/FZj_Logo.jpg?__blob=normal" alt="Forschungszentrum Juelich Logo" width="230px"></a> 
 
 
