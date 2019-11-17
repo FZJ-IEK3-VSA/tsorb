@@ -1,3 +1,6 @@
+<a href="https://www.fz-juelich.de/iek/iek-3/EN/Forschung/_Process-and-System-Analysis/_node.html"><img src="https://www.fz-juelich.de/SharedDocs/Bilder/INM/INM-1/EN/FZj_Logo.jpg?__blob=normal" alt="Forschungszentrum Juelich Logo" width="230px"></a> 
+
+
 # tsorb - Time Series of Occupants in Residential Buildings 
 
 *tsorb* is a python module derived from the first version of the CREST Demand Model [1,2,3]. It was updated with four state occupancy data [4] and validated for Germany [5]. It creates time series of occupancy activity and device load in residential buildings.
@@ -41,6 +44,8 @@ Copyright (C) 2008, 2011 Ian Richardson*, Murray Thomson*, Eoghan McKenna*
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
+## References
 
 [1] Richardson, I., Thomson, M., and Infield, D. A high-resolution domestic building occupancy model for energy demand simulations. Energy and Buildings, 40(8):1560–1566, 2008. ISSN 03787788. doi: 10.1016/j.enbuild.2008.02.006.
 
