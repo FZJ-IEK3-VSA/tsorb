@@ -8,8 +8,8 @@ with open(os.path.join(dir_path, "README.md"), "r") as fh:
 
 setuptools.setup(
     name="tsorb",
-    version="0.0.1",
-    author="Leander Kotzur",
+    version="0.0.2",
+    author="Forschungszentrum Juelich GmbH",
     author_email="l.kotzur@fz-juelich.de",
     description="Time Series of Occupants in Residential Buildings",
     long_description=long_description,
