@@ -12,4 +12,7 @@ sdist :
 clean :
 	rm dist/*
 
-dist : ci sdist upload clean
+upload :
+	twine upload dist/*
+
+dist : test sdist upload clean

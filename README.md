@@ -33,7 +33,7 @@ Copyright (C) 2008, 2011 Ian Richardson*, Murray Thomson*, Eoghan McKenna*
    Department of Electronic and Electrical Engineering
    Loughborough University, Leicestershire LE11 3TU, UK
 
-   ** Institute of Electrochemical Process Engineering (IEK-3), Forschungszentrum Jueulich GmbH, Wilhelm-Johnen-Str., 52428 Juelich, Germany
+   ** Institute of Techno-economic Systems Analysis (IEK-3), Forschungszentrum Jueulich GmbH, Wilhelm-Johnen-Str., 52428 Juelich, Germany
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
