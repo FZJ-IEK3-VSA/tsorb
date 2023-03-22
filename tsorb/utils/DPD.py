@@ -7,7 +7,7 @@ class DPD(object):
     """
 
     def __init__(self, values):
-        self._values = values.astype(np.float)
+        self._values = values.astype(float)
         self._normalize_values()
 
     @property
